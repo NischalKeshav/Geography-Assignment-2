@@ -11,7 +11,8 @@ clock = pygame.time.Clock()
 ###################Images#######################
 Europe = pygame.image.load("Europe.png")
 World = pygame.image.load("world.png")
-Arrow = pygame.image.load("arrow.png")
+ArrowIMG = pygame.image.load("arrow.png")
+tankIMG = pygame.image.load("tank.png")
 
 listOfRects = []
 class Rect:
@@ -35,17 +36,20 @@ class Rect:
 
 
 
-
+class Imgs:
+  
 
 
 
 class arrow:
-  def __init__(x,y):
+  def __init__(self,x,y):
     global Arrow
     self.img = Arrow
     self.x = x
     self.y = y
-
+  def draw(self):
+    Screen.blit(self.img,(self.x,self.y))
+  
     
 
 Rect1 = Rect(0,0,300,600,7,0) 
@@ -56,7 +60,7 @@ Rect4  = Rect(0,300,600,300,0,-7)
 
 
 
-for i in range(400):
+for i in range(300):
   Screen.fill(BG)
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -69,9 +73,17 @@ for i in range(400):
   pygame.display.update()
   clock.tick(60)
 
+for i in range(500):
+  Screen.fill(BG)
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      sys.exit()
+  Screen.blit
 
-while 1:
-  
+
+
+
+
 
 
 
