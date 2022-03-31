@@ -36,22 +36,19 @@ class Rect:
 
 
 
-class Imgs:
-  
-
-
-
-class arrow:
-  def __init__(self,x,y):
-    global Arrow
-    self.img = Arrow
-    self.x = x
-    self.y = y
+class Img:
+  def __init__(self,img,x,y,rotate = 0):
+    self.img = img
+    self.pos = (x,y)
+    pygame.transform.rotate(self.img,rotate)
   def draw(self):
-    Screen.blit(self.img,(self.x,self.y))
+    Screen.blit(self.img,self.pos)
+
+
+
   
     
-
+#images for animation 1
 Rect1 = Rect(0,0,300,600,7,0) 
 Rect2 = Rect(0,0,600,300,0,7)
 Rect3 = Rect(300,0,300,600,-7,0)
@@ -59,7 +56,7 @@ Rect4  = Rect(0,300,600,300,0,-7)
 
 
 
-
+# Animation 1
 for i in range(300):
   Screen.fill(BG)
   for event in pygame.event.get():
@@ -73,12 +70,26 @@ for i in range(300):
   pygame.display.update()
   clock.tick(60)
 
-for i in range(500):
-  Screen.fill(BG)
-  for event in pygame.event.get():
-    if event.type == pygame.QUIT:
-      sys.exit()
-  Screen.blit
+#Images for Animation 2
+# Arrow = Img(ArrowIMG,300,200,rotate=270)
+# World = Img(World,200,80) 
+
+
+
+
+
+
+
+
+# for i in range(500):
+#   Screen.fill(BG)
+#   for event in pygame.event.get():
+#     if event.type == pygame.QUIT:
+#       sys.exit()
+#   Arrow.draw()
+#   World.draw
+#   Screen.blit
+#   pygame.display.update()
 
 
 
