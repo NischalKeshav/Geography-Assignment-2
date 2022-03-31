@@ -13,6 +13,9 @@ Europe = pygame.image.load("Europe.png")
 World = pygame.image.load("world.png")
 ArrowIMG = pygame.image.load("arrow.png")
 tankIMG = pygame.image.load("tank.png")
+stuff = pygame.image.load("Stuff.png")
+ArrowIMG = pygame.transform.rotozoom(ArrowIMG,50,.8)
+
 
 listOfRects = []
 class Rect:
@@ -23,7 +26,7 @@ class Rect:
     self.width = width
     self.height = height 
     self.Move = (xmove,ymove)
-    print(self)
+
     listOfRects.append(self)
   def draw(self):
     pygame.draw.rect(Screen,(150,255,200),(self.x-1,self.y-1,self.x+self.width-1,self.y+self.height-1))
@@ -40,7 +43,8 @@ class Img:
   def __init__(self,img,x,y,rotate = 0):
     self.img = img
     self.pos = (x,y)
-    pygame.transform.rotate(self.img,rotate)
+    
+    self.img = img
   def draw(self):
     Screen.blit(self.img,self.pos)
 
@@ -57,7 +61,7 @@ Rect4  = Rect(0,300,600,300,0,-7)
 
 
 # Animation 1
-for i in range(300):
+for i in range(120):
   Screen.fill(BG)
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -71,40 +75,34 @@ for i in range(300):
   clock.tick(60)
 
 #Images for Animation 2
-# Arrow = Img(ArrowIMG,300,200,rotate=270)
-# World = Img(World,200,80) 
+
+
+  
+Arrow = Img(ArrowIMG,300,270,rotate=90)
+World = Img(World,150,80) 
+Stuff = Img(stuff,-100,100)
+
+list = []
 
 
 
 
+for i in range(1000):
+  Screen.fill(BG)
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      sys.exit()
+
+  Screen.blit(Europe,(200,350))
+  Arrow.draw()
+  World.draw()
+  
+  Stuff.draw()
+  pygame.display.update()
+  clock.tick(60)
 
 
-
-
-# for i in range(500):
-#   Screen.fill(BG)
-#   for event in pygame.event.get():
-#     if event.type == pygame.QUIT:
-#       sys.exit()
-#   Arrow.draw()
-#   World.draw
-#   Screen.blit
-#   pygame.display.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-sys.exit()
+#sys.exit()
   
   
   
